@@ -3,8 +3,10 @@ var Chat = function(socket) {
 };
 
 Chat.prototype.sendMessage = function(room, text) {
-	var message = {room: room, text: text};
-	this.socket.emit('message', message);
+	console.log("sb");
+
+	// var message = {room: room, text: text};
+	// this.socket.emit('message', message);
 };
 
 Chat.prototype.changeRoom = function(room) {
@@ -26,6 +28,7 @@ Chat.prototype.processCommand = function(command) {
 		case 'nick':
 			words.shift();
 			var name = words.join(' ');
+			console.log(name);
 			this.socket.emit('nameAttempt', name);
 			break;
 
